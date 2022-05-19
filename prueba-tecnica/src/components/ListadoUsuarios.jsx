@@ -2,8 +2,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Container, Row, Col, Alert } from 'react-bootstrap'
 import Usuario from './Usuario';
 
-const ListadoUsuarios = ({usuarios}) => {
-    console.log('desde listadoUsuarios',usuarios)
+const ListadoUsuarios = ({usuarios, setUsuario}) => {
+    
     return(
         <>
         <div className='md:w-1/2 lg:w-2/5 h-screen overflow-y-scroll'> 
@@ -22,6 +22,7 @@ const ListadoUsuarios = ({usuarios}) => {
                                     <Usuario 
                                     key={usuario.id}
                                     usuario={usuario}
+                                    setUsuario={setUsuario}
                                     />
                                 ))
                             }

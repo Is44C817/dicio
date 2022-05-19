@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import Swal from 'sweetalert2'
 
 
-const Formulario = ({usuarios, setUsuarios}) => {
+const Formulario = ({usuarios, setUsuarios, usuario}) => {
     const [nombre, setNombre] = useState('');
     const [apPaterno, setPaterno] = useState('');
     const [apMaterno, setMaterno] = useState('');
@@ -18,6 +18,8 @@ const Formulario = ({usuarios, setUsuarios}) => {
     const [estado, setEstado] = useState('');
     const [codigo, setCodigo] = useState('');
     const [imagen, setImagen] = useState('');
+
+
 
     const generarId= () => {
         const random = Math.random().toString(36).substr(2);

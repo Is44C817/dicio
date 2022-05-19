@@ -1,0 +1,76 @@
+{
+  "usuarios": [
+    {
+      "nombre": "1",
+      "apPaterno": "1",
+      "apMaterno": "1",
+      "edad": "-1",
+      "email": "isaac@gamil.com",
+      "fechaNac": "2022-05-19",
+      "id": "1lqgifrlzuel3d8jp0f",
+      "datos": {
+        "calle": "1",
+        "numero": "-11",
+        "colonia": "1",
+        "delegacion": "1",
+        "estado": "1",
+        "codigo": "1",
+        "imagen": "1"
+      }
+    },
+    {
+      "nombre": "1",
+      "apPaterno": "1",
+      "apMaterno": "1",
+      "edad": "-1",
+      "email": "isaac@gamil.com",
+      "fechaNac": "2022-05-19",
+      "id": "edr38n6v0qgl3d8kfb5",
+      "datos": {
+        "calle": "1",
+        "numero": "-11",
+        "colonia": "1",
+        "delegacion": "1",
+        "estado": "1",
+        "codigo": "1",
+        "imagen": "1"
+      }
+    },
+    {
+      "nombre": "1",
+      "apPaterno": "1",
+      "apMaterno": "1",
+      "edad": "-1",
+      "email": "isaac@gamil.com",
+      "fechaNac": "2022-05-19",
+      "id": "w6pig32yzyll3d8l9iq",
+      "datos": {
+        "calle": "1",
+        "numero": "-11",
+        "colonia": "1",
+        "delegacion": "1",
+        "estado": "1",
+        "codigo": "1",
+        "imagen": "1"
+      }
+    },
+    {
+      "nombre": "1",
+      "apPaterno": "1",
+      "apMaterno": "1",
+      "edad": "1",
+      "email": "isaac@gamil.com",
+      "fechaNac": "2022-05-19",
+      "id": "zkuq9cx4gpel3d8ppgp",
+      "datos": {
+        "calle": "1",
+        "numero": "1",
+        "colonia": "11",
+        "delegacion": "1",
+        "estado": "1",
+        "codigo": "1",
+        "imagen": "1"
+      }
+    }
+  ]
+}

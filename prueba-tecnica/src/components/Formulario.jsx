@@ -2,9 +2,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Container, Row, Col,FloatingLabel, Form, Button } from 'react-bootstrap'
 import { useState, useEffect } from 'react'
 import Swal from 'sweetalert2'
+import axios from 'axios';
 
-
-const Formulario = ({usuarios, setUsuarios, usuario}) => {
+const Formulario = ({usuarios, setUsuarios}) => {
     const [nombre, setNombre] = useState('');
     const [apPaterno, setPaterno] = useState('');
     const [apMaterno, setMaterno] = useState('');
@@ -28,28 +28,23 @@ const Formulario = ({usuarios, setUsuarios, usuario}) => {
         return random + fecha;
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
 
-        if([nombre, apPaterno, apMaterno, edad, email, fechaNac, calle, numero, colonia, delegacion, estado, codigo, imagen].includes('')){
+        try {
 
-            Swal.fire({
-                title: 'Verifica tu información',
-                text: 'Hay al menos un campo vacío',
-                icon: 'error',
-                confirmButtonText: 'Cerrar'
-              })
+            const url = 'http://localhost:4000/usuarios';
+            const urlDicio = 'https://api.devdicio.net:8444/v1/sec_dev_interview/';
+        
+            const config = {
+                headers: {
+                        'Content-Type': 'application/json',
+                        'xc-token': 'J38b4XQNLErVatKIh4oP1jw9e_wYWkS86Y04TMNP',
+                        'host': 'api.devdicio.net'
+                }
+            }
 
-        }else{
-
-            Swal.fire({
-                title: 'Usuario creado correctamente',
-                icon: 'success',
-                confirmButtonText: 'Cerrar'
-              })
-        }
-
-        const objetoUsuario =
+            const objetoUsuario =
             {
                 "nombre": nombre,
                 "apPaterno": apPaterno,
@@ -69,11 +64,44 @@ const Formulario = ({usuarios, setUsuarios, usuario}) => {
                 }
               }
         
-        console.log(objetoUsuario)
+        console.log('objetoUsuario', objetoUsuario)
             
-        setUsuarios([...usuarios, objetoUsuario])
+         //setUsuarios([...usuarios, objetoUsuario])
 
+        
+        const {data} = await axios.post(
+                {
+                urlDicio, 
+                config,
+                objetoUsuario
+                }
+                )
+                console.log('data axios', data)
+                setUsuarios([...usuarios, objetoUsuario])  
+            
+        } catch (error) {
+            console.log(error)
+        }
 
+        if([nombre, apPaterno, apMaterno, edad, email, fechaNac, calle, numero, colonia, delegacion, estado, codigo, imagen].includes('')){
+
+            Swal.fire({
+                title: 'Verifica tu información',
+                text: 'Hay al menos un campo vacío',
+                icon: 'error',
+                confirmButtonText: 'Cerrar'
+              })
+
+        }else{
+
+            Swal.fire({
+                title: 'Usuario creado correctamente',
+                icon: 'success',
+                confirmButtonText: 'Cerrar'
+              })
+        }
+
+    
     }
 
     return(

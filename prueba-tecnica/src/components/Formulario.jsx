@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import Swal from 'sweetalert2'
 
 
-const Formulario = () => {
+const Formulario = ({usuarios, setUsuarios}) => {
     const [nombre, setNombre] = useState('');
     const [apPaterno, setPaterno] = useState('');
     const [apMaterno, setMaterno] = useState('');
@@ -23,24 +23,45 @@ const Formulario = () => {
         e.preventDefault()
 
         if([nombre, apPaterno, apMaterno, edad, email, fecha, calle, numero, colonia, delegacion, estado, codigo, imagen].includes('')){
-            console.log('Hay al menos un campo vacio')
 
             Swal.fire({
                 title: 'Verifica tu información',
                 text: 'Hay al menos un campo vacío',
                 icon: 'error',
-                confirmButtonText: 'Cool'
+                confirmButtonText: 'Cerrar'
               })
 
         }else{
-            console.log('Todos llenos')
 
             Swal.fire({
                 title: 'Usuario creado correctamente',
                 icon: 'success',
-                confirmButtonText: 'Cool'
+                confirmButtonText: 'Cerrar'
               })
         }
+
+        const objetoUsuario =
+            {
+                "nombre": nombre,
+                "apPaterno": apPaterno,
+                "apMaterno": apMaterno,
+                "edad": edad,
+                "email": email,
+                "fechaNac": fecha,
+                "datos": {
+                    "calle": calle,
+                    "numero": numero,
+                    "colonia": colonia,
+                    "delegacion": delegacion,
+                    "estado": estado,
+                    "codigo": codigo,
+                    "imagen": imagen,
+                }
+              }
+        
+        console.log(objetoUsuario)
+            
+        setUsuarios([...usuarios, objetoUsuario])
 
     }
 

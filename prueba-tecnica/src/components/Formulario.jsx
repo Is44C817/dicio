@@ -6,8 +6,8 @@ import axios from 'axios';
 
 const Formulario = ({usuarios, setUsuarios}) => {
     const [nombre, setNombre] = useState('');
-    const [apPaterno, setPaterno] = useState('');
-    const [apMaterno, setMaterno] = useState('');
+    const [apellidoPaterno, setPaterno] = useState('');
+    const [apellidoMaterno, setMaterno] = useState('');
     const [edad, setEdad] = useState('');
     const [email, setEmail] = useState('');
     const [fechaNac, setFecha] = useState('');
@@ -16,7 +16,7 @@ const Formulario = ({usuarios, setUsuarios}) => {
     const [colonia, setColonia] = useState('');
     const [delegacion, setDelegacion] = useState('');
     const [estado, setEstado] = useState('');
-    const [codigo, setCodigo] = useState('');
+    const [codigoPostal, setCodigo] = useState('');
     const [imagen, setImagen] = useState('');
 
 
@@ -35,7 +35,7 @@ const Formulario = ({usuarios, setUsuarios}) => {
 
             const url = 'http://localhost:4000/usuarios';
             const urlDicio = 'https://api.devdicio.net:8444/v1/sec_dev_interview/';
-        
+
             const config = {
                 headers: {
                         'Content-Type': 'application/json',
@@ -47,8 +47,8 @@ const Formulario = ({usuarios, setUsuarios}) => {
             const objetoUsuario =
             {
                 "nombre": nombre,
-                "apPaterno": apPaterno,
-                "apMaterno": apMaterno,
+                "apellidoPaterno": apellidoPaterno,
+                "apellidoMaterno": apellidoMaterno,
                 "edad": edad,
                 "email": email,
                 "fechaNac": fechaNac,
@@ -59,31 +59,33 @@ const Formulario = ({usuarios, setUsuarios}) => {
                     "colonia": colonia,
                     "delegacion": delegacion,
                     "estado": estado,
-                    "codigo": codigo,
+                    "codigoPostal": codigoPostal,
                     "imagen": imagen,
                 }
               }
         
         console.log('objetoUsuario', objetoUsuario)
-            
-         //setUsuarios([...usuarios, objetoUsuario])
 
-        
-        const {data} = await axios.post(
-                {
-                urlDicio, 
-                config,
-                objetoUsuario
-                }
-                )
-                console.log('data axios', data)
-                setUsuarios([...usuarios, objetoUsuario])  
-            
+        //Cuando uso axio me marca lo siguiente "Access Denied : Please Login or Signup for a new account"
+         //const {data} = await axios.post(urlDicio,config, objetoUsuario)
+         //console.log('data', data)
+         
+          await fetch(url, {
+             method: 'POST',
+             body: JSON.stringify(objetoUsuario),
+             headers: {
+                 'Content-Type': 'application/json',
+                 'xc-token': 'J38b4XQNLErVatKIh4oP1jw9e_wYWkS86Y04TMNP',
+                 'host': 'api.devdicio.net'
+             }
+             
+         })  
+         setUsuarios([...usuarios, objetoUsuario]) 
         } catch (error) {
             console.log(error)
         }
 
-        if([nombre, apPaterno, apMaterno, edad, email, fechaNac, calle, numero, colonia, delegacion, estado, codigo, imagen].includes('')){
+        if([nombre, apellidoPaterno, apellidoMaterno, edad, email, fechaNac, calle, numero, colonia, delegacion, estado, codigoPostal, imagen].includes('')){
 
             Swal.fire({
                 title: 'Verifica tu información',
@@ -106,7 +108,7 @@ const Formulario = ({usuarios, setUsuarios}) => {
 
     return(
         <>
-        <div className='md:w-1/2 lg:w-3/5'> 
+        <div> 
         <Container>
             <Row>
                 <Col>
@@ -131,7 +133,7 @@ const Formulario = ({usuarios, setUsuarios}) => {
                         controlId="apellidoPatInput"
                         label="Apellido paterno"
                         className="mb-3"
-                        value={apPaterno}
+                        value={apellidoPaterno}
                         onChange={ (e) => setPaterno(e.target.value)}
                     >
                     <Form.Control type="text" placeholder="Apellido paterno" />
@@ -142,7 +144,7 @@ const Formulario = ({usuarios, setUsuarios}) => {
                         controlId="apellidoMatInput"
                         label="Apellido materno"
                         className="mb-3"
-                        value={apMaterno}
+                        value={apellidoMaterno}
                         onChange={ (e) => setMaterno(e.target.value)}
                     >
                     <Form.Control type="text" placeholder="Apellido materno" />
@@ -252,7 +254,7 @@ const Formulario = ({usuarios, setUsuarios}) => {
                         controlId="cpInput"
                         label="CP"
                         className="mb-3"
-                        value={codigo}
+                        value={codigoPostal}
                         onChange={ (e) => setCodigo(e.target.value)}
                     >
                     <Form.Control type="text" placeholder="Cp" />

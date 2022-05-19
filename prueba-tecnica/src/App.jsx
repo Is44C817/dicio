@@ -46,7 +46,7 @@ function App() {
 
       <Header />
 
-      <div className="mt-12 md:flex">
+      <div className="md:flex">
         <Formulario 
           usuarios={usuarios}
           setUsuarios={setUsuarios}
@@ -57,7 +57,7 @@ function App() {
 
       
 
-      <div className="mt-12 md:flex">
+      <div className="mt-5 md:flex">
         <ListadoUsuarios 
          usuarios={usuarios}
          setusuario={setUsuario}

@@ -10,7 +10,7 @@ const Formulario = ({usuarios, setUsuarios}) => {
     const [apMaterno, setMaterno] = useState('');
     const [edad, setEdad] = useState('');
     const [email, setEmail] = useState('');
-    const [fecha, setFecha] = useState('');
+    const [fechaNac, setFecha] = useState('');
     const [calle, setNCAlle] = useState('');
     const [numero, setNumero] = useState('');
     const [colonia, setColonia] = useState('');
@@ -47,7 +47,7 @@ const Formulario = ({usuarios, setUsuarios}) => {
                 "apMaterno": apMaterno,
                 "edad": edad,
                 "email": email,
-                "fechaNac": fecha,
+                "fechaNac": fechaNac,
                 "datos": {
                     "calle": calle,
                     "numero": numero,
@@ -138,7 +138,7 @@ const Formulario = ({usuarios, setUsuarios}) => {
                         controlId="fechaNactInput"
                         label="Fecha nacimiento"
                         className="mb-3"
-                        value={fecha}
+                        value={fechaNac}
                         onChange={ (e) => setFecha(e.target.value)}
                     >
                     <Form.Control type="date" placeholder="Fecha nacimiento" />

@@ -2,7 +2,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Container, Row, Col } from 'react-bootstrap'
 import Usuario from './Usuario';
 
-const ListadoUsuarios = () => {
+const ListadoUsuarios = ({usuarios}) => {
+    console.log('desde listadoUsuarios',usuarios)
     return(
         <>
         <div className='md:w-1/2 lg:w-2/5 h-screen overflow-y-scroll'> 
@@ -13,14 +14,16 @@ const ListadoUsuarios = () => {
                 </Col>
             </Row>
             <Row>
-                <Col >
-                    <Usuario />
-                    <Usuario />
-                    <Usuario />
-                    <Usuario />
-                    <Usuario />
-                    <Usuario />
-                    <Usuario />
+                <Col>
+                {
+                    usuarios.map( usuario => (
+                        <Usuario 
+                        usuario={usuario}
+                        />
+                    ))
+                }
+                    
+   
                 </Col>
             </Row>
             </Container>

@@ -19,7 +19,9 @@ function App() {
           usuarios={usuarios}
           setUsuarios={setUsuarios}
         />
-        <ListadoUsuarios />
+        <ListadoUsuarios 
+          usuarios={usuarios}
+        />
       </div>
 
     </Container>

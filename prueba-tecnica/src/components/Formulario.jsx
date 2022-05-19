@@ -19,10 +19,17 @@ const Formulario = ({usuarios, setUsuarios}) => {
     const [codigo, setCodigo] = useState('');
     const [imagen, setImagen] = useState('');
 
+    const generarId= () => {
+        const random = Math.random().toString(36).substr(2);
+        const fecha = Date.now().toString(36);
+
+        return random + fecha;
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        if([nombre, apPaterno, apMaterno, edad, email, fecha, calle, numero, colonia, delegacion, estado, codigo, imagen].includes('')){
+        if([nombre, apPaterno, apMaterno, edad, email, fechaNac, calle, numero, colonia, delegacion, estado, codigo, imagen].includes('')){
 
             Swal.fire({
                 title: 'Verifica tu información',
@@ -48,6 +55,7 @@ const Formulario = ({usuarios, setUsuarios}) => {
                 "edad": edad,
                 "email": email,
                 "fechaNac": fechaNac,
+                id: generarId(),
                 "datos": {
                     "calle": calle,
                     "numero": numero,
@@ -62,6 +70,7 @@ const Formulario = ({usuarios, setUsuarios}) => {
         console.log(objetoUsuario)
             
         setUsuarios([...usuarios, objetoUsuario])
+
 
     }
 

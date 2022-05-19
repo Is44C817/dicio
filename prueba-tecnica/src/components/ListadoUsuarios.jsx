@@ -18,6 +18,7 @@ const ListadoUsuarios = ({usuarios}) => {
                 {
                     usuarios.map( usuario => (
                         <Usuario 
+                        key={usuario.id}
                         usuario={usuario}
                         />
                     ))

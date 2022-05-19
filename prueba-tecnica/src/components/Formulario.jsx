@@ -1,6 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Container, Row, Col,FloatingLabel, Form, Button } from 'react-bootstrap'
 import { useState, useEffect } from 'react'
+import Swal from 'sweetalert2'
+
+
 const Formulario = () => {
     const [nombre, setNombre] = useState('');
     const [apPaterno, setPaterno] = useState('');
@@ -18,7 +21,27 @@ const Formulario = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log('enviando formulario')
+
+        if([nombre, apPaterno, apMaterno, edad, email, fecha, calle, numero, colonia, delegacion, estado, codigo, imagen].includes('')){
+            console.log('Hay al menos un campo vacio')
+
+            Swal.fire({
+                title: 'Verifica tu información',
+                text: 'Hay al menos un campo vacío',
+                icon: 'error',
+                confirmButtonText: 'Cool'
+              })
+
+        }else{
+            console.log('Todos llenos')
+
+            Swal.fire({
+                title: 'Usuario creado correctamente',
+                icon: 'success',
+                confirmButtonText: 'Cool'
+              })
+        }
+
     }
 
     return(

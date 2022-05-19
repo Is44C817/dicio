@@ -18,3 +18,6 @@ Before using this project you should have installed the following:
 
  4. run the code in git CMD or git Bash with 
     [`npm run dev`](#code).
+    
+ 5. if you want to use json-server
+  [`json-server --watch db.json --port 4000`](#code).

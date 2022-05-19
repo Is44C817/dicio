@@ -40,23 +40,27 @@ function App() {
     obtenerListado()
 }, [])
 
-
   return (
     <>
     <Container>
-      
+
       <Header />
 
       <div className="mt-12 md:flex">
         <Formulario 
           usuarios={usuarios}
           setUsuarios={setUsuarios}
-          usuario={usuario}
+          usaurio={usuarios}
           setUsuario={setUsuario}
         />
+      </div>
+
+      
+
+      <div className="mt-12 md:flex">
         <ListadoUsuarios 
-          usuarios={usuarios}
-          setUsuario={setUsuario}
+         usuarios={usuarios}
+         setusuario={setUsuario}
         />
       </div>
 

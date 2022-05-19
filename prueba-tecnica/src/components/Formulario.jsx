@@ -4,9 +4,12 @@ import {Container, Row, Col,FloatingLabel, Form, Button } from 'react-bootstrap'
 const Formulario = () => {
     return(
         <>
+        <div className='md:w-1/2 lg:w-3/5'> 
         <Container>
             <Row>
-                <Col><h3>Información general</h3></Col>
+                <Col>
+                    <h3 className="font-black text-2xl mx-auto my-2">Información general</h3>
+                </Col>
             </Row>
             <Row>
                 <Col>
@@ -67,7 +70,9 @@ const Formulario = () => {
                 </Col>
             </Row>
             <Row>
-                <Col><h3>Otros datos</h3></Col>
+                <Col>
+                    <h3 className="font-black text-2xl mx-auto my-2">Otros datos</h3>
+                </Col>
             </Row>
             <Row>
                 <Col>
@@ -140,10 +145,14 @@ const Formulario = () => {
             </Row>
             <Row>
                 <Col>
-                    <Button variant="info">Guardar registro</Button>
+                    <Button 
+                        type="submit" 
+                        className='bg-indigo-600 w-full p-3 text-white font-bold hover:bg-indigo-700'
+                        >Guardar registro</Button>
                 </Col>
             </Row>
         </Container>
+        </div>
         </>
 
     )

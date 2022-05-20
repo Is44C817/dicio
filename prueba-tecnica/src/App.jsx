@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Container, Row, Col } from 'react-bootstrap'
 import { useState, useEffect } from 'react'
 import axios from 'axios';
+import Camara from "./components/Camara";
 
 function App() {
 
@@ -46,16 +47,17 @@ function App() {
 
       <Header />
 
-      <div className="md:flex">
+      <div className="mt-12 md:flex">
         <Formulario 
           usuarios={usuarios}
           setUsuarios={setUsuarios}
           usaurio={usuarios}
           setUsuario={setUsuario}
         />
+        <Camara />
       </div>
 
-      
+ 
 
       <div className="mt-5 md:flex">
         <ListadoUsuarios 

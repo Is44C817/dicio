@@ -108,7 +108,7 @@ const Formulario = ({usuarios, setUsuarios}) => {
 
     return(
         <>
-        <div> 
+        <div className="md:w-1/2 lg:w-4/5"> 
         <Container>
             <Row>
                 <Col>
